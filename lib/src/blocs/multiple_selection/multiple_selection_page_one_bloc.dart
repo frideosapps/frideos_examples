@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:frideos/frideos.dart';
+import 'package:frideos_core/frideos_core.dart';
 
 import '../../blocs/bloc.dart';
 import '../../models/item_model.dart';

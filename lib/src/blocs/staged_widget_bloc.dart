@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:math' as math;
 
-import 'package:frideos/frideos.dart';
+import 'package:frideos_core/frideos_core.dart';
 
 import '../blocs/bloc.dart';
 
