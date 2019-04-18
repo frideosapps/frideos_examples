@@ -76,7 +76,7 @@ class DynamicFieldsBloc extends BlocBase {
   }
 
   void dispose() {
-    print('-------StreamedList BLOC DISPOSE--------');
+    print('-------DynamicFields BLOC DISPOSE--------');
     nameFields.dispose();
     ageFields.dispose();
     isFormValid.dispose();
