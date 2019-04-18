@@ -6,7 +6,7 @@ import '../blocs/bloc.dart';
 
 class DynamicFieldsBloc extends BlocBase {
   DynamicFieldsBloc() {
-    print('-------StreamedList BLOC--------');
+    print('-------DynamicFields BLOC--------');
 
     nameFields.addElement(StreamedValue<String>());
     ageFields.addElement(StreamedValue<String>());
