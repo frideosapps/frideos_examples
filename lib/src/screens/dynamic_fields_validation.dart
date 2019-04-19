@@ -6,15 +6,7 @@ import 'package:frideos/frideos.dart';
 
 import '../blocs/bloc.dart';
 import '../blocs/dynamic_fields_validation_bloc.dart';
-
-const TextStyle styleHeader =
-    TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.w500);
-const TextStyle styleValue =
-    TextStyle(fontSize: 16, fontWeight: FontWeight.w500);
-const TextStyle styleOldValue =
-    TextStyle(color: Colors.grey, fontSize: 12, fontWeight: FontWeight.w500);
-const double padding = 22;
-const Color buttonColor = Color(0xff99cef9);
+import '../styles.dart';
 
 class DynamicFieldsPage extends StatelessWidget {
   @override
