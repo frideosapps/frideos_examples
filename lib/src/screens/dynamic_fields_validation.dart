@@ -98,8 +98,9 @@ class DynamicFieldsWidget extends StatelessWidget {
                                 decoration: InputDecoration(
                                   labelText: 'Age:',
                                   hintText: 'Insert the age (1 - 999).',
-                                  errorText: snapshot.error,
+                                  errorText: snapshot.error,                                  
                                 ),
+                                keyboardType: TextInputType.number,
                                 onChanged: bloc.ageFields.value[i].inStream,
                               ),
                             ),
