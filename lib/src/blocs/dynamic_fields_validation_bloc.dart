@@ -8,18 +8,34 @@ class DynamicFieldsBloc extends BlocBase {
   DynamicFieldsBloc() {
     print('-------DynamicFields BLOC--------');
 
-    nameFields.addElement(StreamedValue<String>());
-    ageFields.addElement(StreamedValue<String>());
+    // Adding the first two fields to the screen
+    nameFields.addElement(StreamedValue<String>(initialData: 'Name 1'));
+    ageFields.addElement(StreamedValue<String>(initialData: '27'));
+
+    // Set the method to call everytime the stream emits a new event
+    nameFields.value.last.onChange(checkForm);
+    ageFields.value.last.onChange(checkForm);
+
+    // Adding other fields to the screen
+    nameFields.addElement(StreamedValue<String>(initialData: 'Name 2'));
+    ageFields.addElement(StreamedValue<String>(initialData: '33'));
 
     nameFields.value.last.onChange(checkForm);
     ageFields.value.last.onChange(checkForm);
   }
 
+  // A StreamedList holds the a list of StreamedValue of type String so
+  // it is possibile adding more items.
   final nameFields = StreamedList<StreamedValue<String>>(initialData: []);
   final ageFields = StreamedList<StreamedValue<String>>(initialData: []);
 
+  // This StreamedValue is used to handle the current validation state
+  // of the form.
   final isFormValid = StreamedValue<bool>();
 
+  // Every time the user clicks on the "New fields" button, this method
+  // add two new fields and sets the checkForm method to be called
+  // every time these new fields changes.
   void newFields() {
     nameFields.addElement(StreamedValue<String>());
     ageFields.addElement(StreamedValue<String>());
@@ -27,18 +43,19 @@ class DynamicFieldsBloc extends BlocBase {
     nameFields.value.last.onChange(checkForm);
     ageFields.value.last.onChange(checkForm);
 
-    nameFields.refresh();
-
+    // This is used to force the check of the form so that, adding
+    // the new fields, it can reveal them as empty and sets the form
+    // to not valid.
     checkForm(null);
   }
 
-  void checkForm(String str) {
+  void checkForm(String _) {
     bool isValidFieldsTypeName = true;
     bool isValidFieldsTypeAge = true;
 
     for (var item in nameFields.value) {
       if (item.value != null) {
-        if (item.value == '') {
+        if (item.value.isEmpty) {
           item.stream.sink.addError('The text must not be empty.');
           isValidFieldsTypeName = false;
         }
@@ -49,7 +66,7 @@ class DynamicFieldsBloc extends BlocBase {
 
     for (var item in ageFields.value) {
       if (item.value != null) {
-        int age = int.tryParse(item.value);
+        final age = int.tryParse(item.value);
 
         if (age == null) {
           item.stream.sink.addError('Enter a valida number.');
@@ -71,10 +88,16 @@ class DynamicFieldsBloc extends BlocBase {
     }
   }
 
-  void someActions() {
+  void submit() {
     print('Actions');
   }
 
+  void removeFields(int index) {    
+    nameFields.removeAt(index);
+    ageFields.removeAt(index);
+  }
+
+  @override
   void dispose() {
     print('-------DynamicFields BLOC DISPOSE--------');
     nameFields.dispose();

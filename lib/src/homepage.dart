@@ -213,7 +213,7 @@ class HomePage extends StatelessWidget {
                 }),
               ]),
               _expansionTile('Various', [
-                _tile('Dynamic form fields', () {
+                _tile('Dynamic fields validation', () {
                   Navigator.pop(context);
 
                   final bloc = DynamicFieldsBloc();
