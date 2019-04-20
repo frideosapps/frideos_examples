@@ -124,8 +124,8 @@ class DynamicFieldsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final DynamicFieldsBloc bloc = BlocProvider.of(context);
 
-    List<Widget> _buildForm(int length) {
-      // Clear TextEditingController lists
+    List<Widget> _buildFields(int length) {
+      // Clear the TextEditingControllers lists
       nameFieldsController.clear();
       ageFieldsController.clear();
 
@@ -155,7 +155,7 @@ class DynamicFieldsWidget extends StatelessWidget {
           streamed: bloc.nameFields,
           builder: (context, snapshot) {
             return Column(
-              children: _buildForm(snapshot.data.length),
+              children: _buildFields(snapshot.data.length),
             );
           },
           noDataChild: const Text('NO DATA'),
