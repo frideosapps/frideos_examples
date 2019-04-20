@@ -1,4 +1,4 @@
-import 'dart:async';
+import 'dart:math' as math;
 
 import 'package:frideos_core/frideos_core.dart';
 
@@ -8,20 +8,27 @@ class DynamicFieldsBloc extends BlocBase {
   DynamicFieldsBloc() {
     print('-------DynamicFields BLOC--------');
 
-    // Adding the first two fields to the screen
-    nameFields.addElement(StreamedValue<String>(initialData: 'Name 1'));
-    ageFields.addElement(StreamedValue<String>(initialData: '27'));
+    // Adding the iniital three pairs of fields to the screen
+    nameFields.addAll([
+      StreamedValue<String>(initialData: 'Name AA'),
+      StreamedValue<String>(initialData: 'Name BB'),
+      StreamedValue<String>(initialData: 'Name CC')
+    ]);
 
-    // Set the method to call everytime the stream emits a new event
-    nameFields.value.last.onChange(checkForm);
-    ageFields.value.last.onChange(checkForm);
+    ageFields.addAll([
+      StreamedValue<String>(initialData: '11'),
+      StreamedValue<String>(initialData: '22'),
+      StreamedValue<String>(initialData: '33')
+    ]);
 
-    // Adding other fields to the screen
-    nameFields.addElement(StreamedValue<String>(initialData: 'Name 2'));
-    ageFields.addElement(StreamedValue<String>(initialData: '33'));
+    // Set the method to call every time the stream emits a new event
+    for (var item in nameFields.value) {
+      item.onChange(checkForm);
+    }
 
-    nameFields.value.last.onChange(checkForm);
-    ageFields.value.last.onChange(checkForm);
+    for (var item in ageFields.value) {
+      item.onChange(checkForm);
+    }
   }
 
   // A StreamedList holds the a list of StreamedValue of type String so
@@ -37,13 +44,16 @@ class DynamicFieldsBloc extends BlocBase {
   // add two new fields and sets the checkForm method to be called
   // every time these new fields changes.
   void newFields() {
-    nameFields.addElement(StreamedValue<String>());
-    ageFields.addElement(StreamedValue<String>());
+    final name = math.Random().nextInt(99999);
+    final age = math.Random().nextInt(120);
+
+    nameFields.addElement(StreamedValue<String>(initialData: 'Name $name'));
+    ageFields.addElement(StreamedValue<String>(initialData: '$age'));
 
     nameFields.value.last.onChange(checkForm);
     ageFields.value.last.onChange(checkForm);
 
-    // This is used to force the check of the form so that, adding
+    // This is used to force the checking of the form so that, adding
     // the new fields, it can reveal them as empty and sets the form
     // to not valid.
     checkForm(null);
@@ -92,7 +102,7 @@ class DynamicFieldsBloc extends BlocBase {
     print('Actions');
   }
 
-  void removeFields(int index) {    
+  void removeFields(int index) {
     nameFields.removeAt(index);
     ageFields.removeAt(index);
   }
