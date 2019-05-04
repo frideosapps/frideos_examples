@@ -5,6 +5,7 @@ import 'package:frideos/frideos.dart';
 import '../src/blocs/animated_object_bloc.dart';
 import '../src/blocs/bloc.dart';
 import '../src/blocs/dynamic_fields_validation_bloc.dart';
+import '../src/blocs/cart_bloc.dart';
 import '../src/blocs/sliders_bloc.dart';
 import '../src/blocs/staged_widget_bloc.dart';
 import '../src/blocs/staged_object/staged_object_bloc.dart';
@@ -19,6 +20,7 @@ import 'screens/blur_page.dart';
 import 'screens/curvedtransition_page.dart';
 import 'screens/dynamic_fields_validation.dart';
 import 'screens/lineartransition_page.dart';
+import 'screens/cart_page.dart';
 import 'screens/sliders_page.dart';
 import 'screens/staged_widget_page.dart';
 import 'screens/streamed_list_page.dart';
@@ -239,6 +241,21 @@ class HomePage extends StatelessWidget {
                       builder: (context) => BlocProvider(
                             bloc: bloc,
                             child: MultipleSelectionHome(),
+                          ),
+                    ),
+                  );
+                }),
+                _tile('Products catalog', () {
+                  Navigator.pop(context);
+
+                  final bloc = CartBloc();
+
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => BlocProvider(
+                            bloc: bloc,
+                            child: CartPage(),
                           ),
                     ),
                   );
