@@ -36,6 +36,12 @@ class CatalogItem {
   void refreshTotal() {
     totalPrice.value = products[id].price * quantity.value;
   }
+
+  void dispose() {
+    quantity.dispose();
+    totalPrice.dispose();
+    added.dispose();
+  }
 }
 
 class CartItem {
@@ -67,7 +73,6 @@ class CartBloc extends BlocBase {
 
   void addItem(int id) {
     if (!cart.value.any((item) => item == id)) {
-      
       // Add the item to the cart
       cart.addElement(id);
       getItem(id).refreshTotal();
@@ -82,7 +87,7 @@ class CartBloc extends BlocBase {
   }
 
   void removeItem(int id) {
-    if (cart.value.any((item) => item == id)) {      
+    if (cart.value.any((item) => item == id)) {
       cart.value.removeWhere((item) => item == id);
       catalog.value.firstWhere((item) => item.id == id).added.value = false;
       cart.refresh();
@@ -110,5 +115,12 @@ class CartBloc extends BlocBase {
   @override
   void dispose() {
     print('-------Cart BLOC DISPOSE--------');
+    cart.dispose();
+
+    for (var item in catalog.value) {
+      item.dispose();
+    }
+
+    catalog.dispose();
   }
 }
