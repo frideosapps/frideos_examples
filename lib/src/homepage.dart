@@ -4,7 +4,6 @@ import 'package:frideos/frideos.dart';
 
 import '../src/blocs/animated_object_bloc.dart';
 import '../src/blocs/bloc.dart';
-import '../src/blocs/dynamic_fields_validation_bloc.dart';
 import '../src/blocs/cart_bloc.dart';
 import '../src/blocs/sliders_bloc.dart';
 import '../src/blocs/staged_widget_bloc.dart';
@@ -18,7 +17,6 @@ import '../src/blocs/multiple_selection/multiple_selection_bloc.dart';
 import 'screens/animated_object_page.dart';
 import 'screens/blur_page.dart';
 import 'screens/curvedtransition_page.dart';
-import 'screens/dynamic_fields_validation.dart';
 import 'screens/lineartransition_page.dart';
 import 'screens/cart_page.dart';
 import 'screens/sliders_page.dart';
@@ -215,21 +213,6 @@ class HomePage extends StatelessWidget {
                 }),
               ]),
               _expansionTile('Various', [
-                _tile('Dynamic fields validation', () {
-                  Navigator.pop(context);
-
-                  final bloc = DynamicFieldsBloc();
-
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => BlocProvider(
-                            bloc: bloc,
-                            child: DynamicFieldsPage(),
-                          ),
-                    ),
-                  );
-                }),
                 _tile('Multiple selection', () {
                   Navigator.pop(context);
 
