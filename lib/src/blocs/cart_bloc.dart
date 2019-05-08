@@ -19,17 +19,15 @@ class Product {
 }
 
 class CatalogItem {
-  CatalogItem({this.id});
+  CatalogItem({this.id}) {
+    quantity =
+        StreamedValue<int>(onError: (e) => print('Validation error: $e'));
+  }
 
   int id;
-  final quantity = StreamedValue<int>();
+  StreamedValue<int> quantity;
   final totalPrice = StreamedValue<double>();
   final added = StreamedValue<bool>(initialData: false);
-
-  set productQuantity(int amount) {
-    totalPrice.value = products[id].price * amount;
-    quantity.value = amount;
-  }
 
   int get productPrice => quantity.value;
 

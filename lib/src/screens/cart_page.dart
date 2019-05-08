@@ -24,7 +24,6 @@ class CartPage extends StatelessWidget {
               child: ValueBuilder<List<CatalogItem>>(
                   streamed: bloc.catalog,
                   builder: (context, snapshotItem) {
-
                     final widgets = List<Widget>();
 
                     widgets
@@ -115,8 +114,9 @@ class CartPage extends StatelessWidget {
                                     SizedBox(
                                       width: (width / 6) * 0.5,
                                       height: 30,
-                                      child: StreamBuilder<bool>(
-                                          stream: p.added.outStream,
+                                      child: ValueBuilder<bool>(
+                                          //returnNull: true,
+                                          streamed: p.added,
                                           builder: (context, snapshotAdded) {
                                             return Padding(
                                               padding:
