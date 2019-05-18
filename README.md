@@ -2,13 +2,13 @@
 
 This repository contains example apps to show how to use the [frideos_core](https://pub.dartlang.org/packages/frideos_core), [frideos](https://pub.dartlang.org/packages/frideos), and [frideos_light](https://pub.dartlang.org/packages/frideos_light) packages: 
 
-* [**Counter**](https://github.com/frideosapps/frideos_examples/01_counter): a classic counter example
-* [**Basics**](https://github.com/frideosapps/frideos_examples/02_basics) : an example app that shows how to use the StreamedObjects (StreamedValue, StreamedList, StreamedMap etc.)
-* [**Various**](https://github.com/frideosapps/frideos_examples/03_various): how to use TimerObject, AnimatedObject, blur widgets, transitions widgets, StagedWidget, sliders.
-* [**StagedObject**](https://github.com/frideosapps/frideos_examples/04_stage_object): StagedObject and the tunnel pattern (to share send data from one bloc to another one)
-* [**Multiple selection**](https://github.com/frideosapps/frideos_examples/05_multiple_selection)
-* [**Products catalog**](https://github.com/frideosapps/frideos_examples/06_products_catalog)
-* [**Dynamic fields validation**](https://github.com/frideosapps/frideos_examples/07_dynamic_fields_validation): an example on how to validate dynamically created fields with the BLoC pattern and the [frideos](https://pub.dartlang.org/packages/frideos) package. Article on medium [here](https://medium.com/flutter-community/flutter-how-to-validate-fields-dynamically-created-40cafca5c3cb).
+* [**Counter**](https://github.com/frideosapps/frideos_examples/tree/master/01_counter): a classic counter example
+* [**Basics**](https://github.com/frideosapps/frideos_examples/tree/master/02_basics) : an example app that shows how to use the StreamedObjects (StreamedValue, StreamedList, StreamedMap etc.)
+* [**Various**](https://github.com/frideosapps/frideos_examples/tree/master/03_various): how to use TimerObject, AnimatedObject, blur widgets, transitions widgets, StagedWidget, sliders.
+* [**StagedObject**](https://github.com/frideosapps/frideos_examples/tree/master/04_stage_object): StagedObject and the tunnel pattern (to share send data from one bloc to another one)
+* [**Multiple selection**](https://github.com/frideosapps/frideos_examples/tree/master/05_multiple_selection)
+* [**Products catalog**](https://github.com/frideosapps/frideos_examples/tree/master/06_products_catalog)
+* [**Dynamic fields validation**](https://github.com/frideosapps/frideos_examples/tree/master/07_dynamic_fields_validation): an example on how to validate dynamically created fields with the BLoC pattern and the [frideos](https://pub.dartlang.org/packages/frideos) package. Article on medium [here](https://medium.com/flutter-community/flutter-how-to-validate-fields-dynamically-created-40cafca5c3cb).
 
 
 ## Screenshots
