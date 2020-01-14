@@ -1,6 +1,6 @@
 # Frideos library examples
 
-This repository contains example apps to show how to use the [frideos_core](https://pub.dartlang.org/packages/frideos_core), [frideos](https://pub.dartlang.org/packages/frideos), and [frideos_light](https://pub.dartlang.org/packages/frideos_light) packages: 
+This repository contains example apps to show how to use the [frideos](https://pub.dartlang.org/packages/frideos) package: 
 
   1 - [**Counter**](https://github.com/frideosapps/frideos_examples/tree/master/01_counter): a classic counter example
 
